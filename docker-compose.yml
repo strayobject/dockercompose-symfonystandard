@@ -5,9 +5,9 @@ services:
         build:
             context: .
             dockerfile: opt/nginx/Dockerfile
-#        ports:
-#            - 80:80
-#            - 443:443
+        ports:
+           - 80
+           - 443
         depends_on:
             - php-fpm
             - app
@@ -37,8 +37,8 @@ services:
 
     mariadb:
         image: mariadb:10.1
-        #        ports:
-        #            - 3306:3306
+        ports:
+           - 3306
         environment:
             - MYSQL_DATABASE=passmed
             - MYSQL_ROOT_PASSWORD=devpass
