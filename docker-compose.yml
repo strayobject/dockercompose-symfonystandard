@@ -45,16 +45,15 @@ services:
         # volumes:
             #- ./opt/db/db.sql:/docker-entrypoint-initdb.d/db.sql
 
-    # appworker:
-    #     container_name: appworker
-    #     image: nginx:stable
-    #     volumes_from:
-    #         - app
-    #     depends_on:
-    #         - app
-    #     entrypoint: /bin/sh -c /opt/app/entrypoint.sh
-    #     volumes:
-    #         - ./opt/app:/opt/app
+    appworker:
+        image: nginx:latest
+        volumes_from:
+            - app
+        depends_on:
+            - app
+        entrypoint: /bin/sh -c /opt/app/entrypoint.sh
+        volumes:
+            - ./opt/app:/opt/app
 
     app:
         image: busybox
