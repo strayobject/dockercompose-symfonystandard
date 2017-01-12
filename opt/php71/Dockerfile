@@ -2,8 +2,6 @@ FROM php:7.1-fpm
 
 MAINTAINER Michal Zdrojewski <code@strayobject.co.uk>
 
-COPY opt/php71/*.ini /usr/local/etc/php/conf.d/
-
 RUN usermod -u 1000 www-data
 
 # temporarily compile new version as debian has an outdated one
@@ -16,3 +14,5 @@ RUN apt-get update \
  && apt-get autoremove && apt-get autoclean \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+COPY opt/php71/conf/conf.d/*.ini /usr/local/etc/php/conf.d/
+COPY opt/php71/conf/php.ini /usr/local/etc/php/php.ini

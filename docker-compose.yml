@@ -6,8 +6,8 @@ services:
             context: .
             dockerfile: opt/nginx/Dockerfile
         ports:
-           - 80
-           - 443
+            - 9080:80
+            - 9443:443
         depends_on:
             - php-fpm
             - app
@@ -38,12 +38,19 @@ services:
     mariadb:
         image: mariadb:10.1
         ports:
-           - 3306
+            - 3309:3306
         environment:
-            - MYSQL_DATABASE=passmed
-            - MYSQL_ROOT_PASSWORD=devpass
+            - MYSQL_DATABASE=symfony
+            - MYSQL_ROOT_PASSWORD=rootPassword
+            - MYSQL_USER=devUser
+            - MYSQL_PASSWORD=devPassword
         # volumes:
             #- ./opt/db/db.sql:/docker-entrypoint-initdb.d/db.sql
+
+    postfix:
+        build:
+            context: .
+            dockerfile: opt/postfix/Dockerfile
 
     appworker:
         image: nginx:latest
