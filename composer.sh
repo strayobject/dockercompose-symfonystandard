@@ -1,1 +1,1 @@
-docker run --rm --name composer -v "$PWD:/app" composer/composer:alpine $1
+docker run --rm -v "$PWD:/app" composer/composer:alpine $1

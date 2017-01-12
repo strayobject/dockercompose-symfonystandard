@@ -7,6 +7,10 @@ security:
         in_memory:
             memory: ~
 
+    role_hierarchy:
+        ROLE_ADMIN: ROLE_USER
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
         dev:
@@ -14,6 +18,7 @@ security:
             security: false
 
         main:
+            switch_user: true
             anonymous: ~
             # activate different ways to authenticate
 
