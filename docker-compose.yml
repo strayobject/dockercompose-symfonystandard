@@ -28,6 +28,8 @@ services:
             - app
         volumes_from:
           - app
+        environment:
+          - DOCKER_DEV=1
 
     redis:
         image: redis
