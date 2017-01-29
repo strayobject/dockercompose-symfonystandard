@@ -5,7 +5,7 @@ MAINTAINER Michal Zdrojewski <code@strayobject.co.uk>
 RUN usermod -u 1000 www-data
 
 # temporarily compile new version as debian has an outdated one
-RUN curl -sS -o /tmp/icu.tar.gz -L http://download.icu-project.org/files/icu4c/57.1/icu4c-57_1-src.tgz && tar -zxf /tmp/icu.tar.gz -C /tmp && cd /tmp/icu/source && ./configure --prefix=/usr/local && make && make install
+RUN curl -sS -o /tmp/icu.tar.gz -L http://download.icu-project.org/files/icu4c/58.2/icu4c-58_2-src.tgz && tar -zxf /tmp/icu.tar.gz -C /tmp && cd /tmp/icu/source && ./configure --prefix=/usr/local && make && make install
 
 RUN apt-get update \
  && apt-get install -y unzip git libcurl4-gnutls-dev zlib1g-dev libicu-dev libpng-dev libjpeg-dev libfreetype6-dev g++ \
