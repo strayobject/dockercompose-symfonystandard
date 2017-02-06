@@ -30,6 +30,7 @@ services:
           - app
         environment:
           - DOCKER_DEV=1
+          - HOST_ADDRESS=192.168.77.4
 
     redis:
         image: redis

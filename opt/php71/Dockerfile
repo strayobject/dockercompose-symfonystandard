@@ -15,5 +15,8 @@ RUN apt-get update \
  && apt-get autoremove && apt-get autoclean \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+RUN pecl install xdebug-2.5.0 \
+ && docker-php-ext-enable xdebug
+
 COPY opt/php71/conf/conf.d/*.ini /usr/local/etc/php/conf.d/
 COPY opt/php71/conf/php.ini /usr/local/etc/php/php.ini
