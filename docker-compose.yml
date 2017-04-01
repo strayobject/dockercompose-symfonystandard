@@ -31,6 +31,8 @@ services:
         environment:
           - DOCKER_DEV=1
           - HOST_ADDRESS=${HOST_ADDRESS}
+          - XDEBUG_LOGFILE=/var/www/var/logs/xdebug.log
+          - XDEBUG_PORT=9001
 
     redis:
         image: redis
